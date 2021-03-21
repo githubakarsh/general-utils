@@ -1,9 +1,2 @@
-import serviceApiRequest from './apiCaller';
-import addFunction from './addFunction';
-
-
-
-export default {
-    serviceApiRequest,
-    addFunction
-}
+export { default as serviceApiRequest } from "./apiCaller";
+export { default as addFunction } from './addFunction';
