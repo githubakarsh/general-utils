@@ -34,4 +34,4 @@ async function serviceApiRequest(serviceRequest, successManager, failureManager)
 
 }
 
-module.exports = serviceApiRequest;
+export default serviceApiRequest;
