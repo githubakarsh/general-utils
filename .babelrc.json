@@ -1,4 +1,4 @@
 {
-    "presets": [["@babel/env", { "modules": false }]]
+    "presets": [["@babel/env", { "modules": false }, {"targets": {"node": "current"}}]];
   }
   
