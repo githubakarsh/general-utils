@@ -1,4 +1,6 @@
 import { terser } from "rollup-plugin-terser";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import babel from "@rollup/plugin-babel";
 
 export default {
   input: "./src/index.js",
@@ -7,11 +9,21 @@ export default {
       file: "bundle.js",
       format: "cjs",
     },
-    // {
-    //     file: 'bundle.min.js',
-    //     format: 'iife',
-    //     name: 'version',
-    //     plugins: [terser()]
-    // },
+    {
+        file: 'dist/GeneralUtils.js',
+        format: 'umd',
+        name: 'GeneralUtils',
+        esModule: false,
+        exports: "named",
+        sourcemap: true,
+        plugins: [terser()]
+    },
   ],
+  plugins: [
+    nodeResolve(),
+    babel({
+      babelHelpers: "bundled",
+    }),
+  ],
+  
 };
