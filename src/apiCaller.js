@@ -1,4 +1,5 @@
 const _ = require('lodash');
+
 async function serviceApiRequest(serviceRequest, successManager, failureManager) {
     const { url, method, headers, body, mode, credentials } = serviceRequest;
     if (!url || !method) {
@@ -33,4 +34,4 @@ async function serviceApiRequest(serviceRequest, successManager, failureManager)
 
 }
 
-export default serviceApiRequest;
+module.exports = serviceApiRequest;
