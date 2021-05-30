@@ -27,12 +27,13 @@ async function serviceApiRequest(serviceRequest, successManager, failureManager)
         if(code) {
             requestData.mode = mode;
         }
+
         const response = await fetch(url, requestData);
         const responseData = await response.json();
         return responseData;
     } catch (error) {
         // throw some error
-        console.log("some error");
+        return error;
     }
 
 }
