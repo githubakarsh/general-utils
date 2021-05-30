@@ -1,7 +1,16 @@
 const _ = require('lodash');
 
+/**
+ * @variable serviceRequest must be a Object
+ * 
+ */
+
 async function serviceApiRequest(serviceRequest, successManager, failureManager) {
+    if(_.isEmpty(serviceRequest)) {
+        return {message : "service request object is empty ....."};
+    }
     const { url, method, headers, body, mode, credentials } = serviceRequest;
+
     if (!url || !method) {
         return;
     }
@@ -30,10 +39,10 @@ async function serviceApiRequest(serviceRequest, successManager, failureManager)
 
         const response = await fetch(url, requestData);
         const responseData = await response.json();
-        return responseData;
+        successManager(responseData);
     } catch (error) {
         // throw some error
-        return error;
+        failureManager(error);
     }
 
 }
