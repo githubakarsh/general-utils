@@ -1,2 +1,7 @@
 export { default as serviceApiRequest } from "./apiCaller";
-export { default as addFunction } from './addFunction';
+
+export { default as addFunction } from './addFunction.js';
+
+
+
+

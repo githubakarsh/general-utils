@@ -11,7 +11,7 @@ export default {
     },
     {
         file: 'dist/GeneralUtils.js',
-        format: 'umd',
+        format: 'cjs',
         name: 'GeneralUtils',
         esModule: false,
         exports: "named",

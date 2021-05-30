@@ -12,6 +12,10 @@ async function serviceApiRequest(serviceRequest, successManager, failureManager)
             headers: { "Content-Type": "application/json" },
         };
 
+        if(!_.isEmpty(headers)) {
+            requestData.headers = headers;
+        }
+
         if (!_.isEmpty(body) && (method === "POST" || method === "PUT")) {
             requestData.body = JSON.stringify(body);
         }
@@ -19,14 +23,13 @@ async function serviceApiRequest(serviceRequest, successManager, failureManager)
         if (credentials) {
             requestData.credentials = credentials;
         }
+
+        if(code) {
+            requestData.mode = mode;
+        }
         const response = await fetch(url, requestData);
         const responseData = await response.json();
-
-        if (response.status === 200) {
-            console.log(responseData);
-        } else {
-            console.log("Service Error");
-        }
+        return responseData;
     } catch (error) {
         // throw some error
         console.log("some error");
